@@ -1,0 +1,37 @@
+# Project: Project1
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = 18_addFun.o 19_myTemplate.o 20_FunctionalPointer.o d.o
+LINKOBJ  = 18_addFun.o 19_myTemplate.o 20_FunctionalPointer.o d.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = myProject.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+18_addFun.o: 18_addFun.cpp
+	$(CPP) -c 18_addFun.cpp -o 18_addFun.o $(CXXFLAGS)
+
+19_myTemplate.o: 19_myTemplate.cpp
+	$(CPP) -c 19_myTemplate.cpp -o 19_myTemplate.o $(CXXFLAGS)
+
+20_FunctionalPointer.o: 20_FunctionalPointer.cpp
+	$(CPP) -c 20_FunctionalPointer.cpp -o 20_FunctionalPointer.o $(CXXFLAGS)
+
+d.o: d.cpp
+	$(CPP) -c d.cpp -o d.o $(CXXFLAGS)
