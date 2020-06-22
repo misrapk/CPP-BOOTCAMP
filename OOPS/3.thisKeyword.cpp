@@ -18,9 +18,16 @@ public:
 		return _os;
 	}
 	
+	int getPrice();
+	
 //	//destructor
 	~Phone();
 };
+
+int Phone::getPrice(){
+	printf("Value of getPrice is %p\n", this);
+	return _price;
+}
 
 /*OVERWRITE THE CONSTRUCTORS*/
 
@@ -31,12 +38,12 @@ Phone :: Phone() : _name(), _os("KitKat"), _price(){
 
 //paramerter construcotr
 Phone :: Phone(const string &name, const string &os, const int& price) : _name(name), _os(os), _price(price){
-	puts("This is parameter constructor.");
+	puts("This is parameter constructor");
 }
 
 //for copy cosntructor
 Phone :: Phone(const Phone & values){
-	puts("Overwrite opy consturctor.");
+	puts("Overwrite opy consturctor");
 	_name = values._name;
 	_os = values._os;
 	_price = values._price;
@@ -45,7 +52,7 @@ Phone :: Phone(const Phone & values){
 
 // for destructor
 Phone :: ~Phone(){
-	printf("Destructor called for %s\n.", _name.c_str());
+	printf("Destructor called for %s\n", _name.c_str());
 }
 
 
@@ -58,10 +65,12 @@ int main(){
 	Phone OnePlus8("OnePlus 8", "AndroidP",  8999);
 	cout<<OnePlus8.getName()<<endl;
 	
-	//copy
+	OnePlus8.getPrice();
+	printf("Value of object is %p\n", &OnePlus8);
+	
 	Phone OnePlus8S = OnePlus8;
 	cout<< OnePlus8S.getName()<<endl;
 	
-	//using copy constructor
+	
 	
 }

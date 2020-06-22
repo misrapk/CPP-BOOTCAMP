@@ -7,6 +7,7 @@ int main(){
 	cout<<"Enter you fav: \n";
 	getline(cin, myColor);
 	cout<<"HEy " << myColor<< " is my fav color too"<<endl;
+
 	
 	return 0;
 	
